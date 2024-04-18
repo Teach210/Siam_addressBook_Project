@@ -1,31 +1,24 @@
 #pragma once
 #include <iostream>
 
-class dateType
-{
-private:
-	int dDay = 1;
-	int dMonth = 1;
-	int dYear = 1900;
 
+class dateType {
 public:
-	// Constructor//
-	dateType(int d, int m, int y);
+    dateType(); // Default constructor
+    dateType(int m, int d, int y); // Constructor with parameters
 
-	// Setter
-	void setDate(int d, int m, int y);
+    void setDate(int m, int d, int y);
+    void print() const;
 
-	// Getter
-	int getDay() const;
-	int getMonth() const;
-	int getYear() const;
+    int getDay() const;   // Getter function for day
+    int getMonth() const; // Getter function for month
+    int getYear() const;  // Getter function for year
 
-	// Other
-
-	void print() const;
-	bool isLeapYear(int Year) const;
-	int daysInMonth(int month, int year) const;
-
-
+private:
+    int dDay;
+    int dMonth;
+    int dYear;
+    bool isLeapYear(int year) const;
+    int daysInMonth(int month, int year) const;
 };
 
