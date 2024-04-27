@@ -1,8 +1,18 @@
 #include <iostream>
-#include "dateType.h"
-using namespace std;
-// Program to verify that the modified dateType class is working correctly
-int main()
-{
-	
+#include "personType.h"
+
+int main() {
+    // Creating an instance of personType
+    personType person("John", "Doe");
+
+    // Printing person's information
+    person.print();
+
+    // Updating person's first name
+    person.setFirstName("Jane");
+
+    // Printing updated information
+    person.print();
+
+    return 0;
 }
