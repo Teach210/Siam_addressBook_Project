@@ -28,10 +28,10 @@ public:
 	//postxconditions: uses given zipcode else it uses default value (10000)
 	void setZipcode(int zip);
 
-	string getAddress() { return address; }
-	string getCity() { return city; }
-	string getState() { return state; }
-	int getZipcode() { return zipcode; }
+	std::string getAddress() const { return address; }
+	std::string getCity() const { return city; }
+	std::string getState() const { return state; }
+	int getZipcode() const { return zipcode; }
 	
 
 	

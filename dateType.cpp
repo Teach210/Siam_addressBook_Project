@@ -10,15 +10,16 @@ dateType::dateType(int m, int d, int y) {
 }
 
 void dateType::setDate(int m, int d, int y) {
+    bool validDate = true;
+
+    // Print input values for debugging
+    std::cout << "Input Date: " << m << "-" << d << "-" << y << std::endl;
+
     // Check Year
     if (y < 1900) {
+        validDate = false;
         dYear = 1900;
-        dMonth = 1;
-        dDay = 1;
-        //std::cout << "Month =" << dMonth << " ";
-        //std::cout << "Day =" << dDay << " ";
-        std::cout << "Date invalid, setting to 1/1/1900" << std::endl;
-        return; // exists the function
+        std::cout << "Invalid Year" << std::endl; // Debugging output
     }
     else {
         dYear = y;
@@ -26,11 +27,9 @@ void dateType::setDate(int m, int d, int y) {
 
     // Check Month
     if (m < 1 || m > 12) {
-        dYear = 1900;
+        validDate = false;
         dMonth = 1;
-        dDay = 1;
-        std::cout << "Date invalid, setting to 1/1/1900" << std::endl;
-        return;
+        std::cout << "Invalid Month" << std::endl; // Debugging output
     }
     else {
         dMonth = m;
@@ -39,14 +38,17 @@ void dateType::setDate(int m, int d, int y) {
     // Check Day
     int lastDayOfMonth = daysInMonth(dMonth, dYear);
     if (d < 1 || d > lastDayOfMonth) {
-        dYear = 1900;
-        dMonth = 1;
+        validDate = false;
         dDay = 1;
-        std::cout << "Date invalid, setting to 1/1/1900" << std::endl;
-        return;
+        std::cout << "Invalid Day" << std::endl; // Debugging output
     }
     else {
         dDay = d;
+    }
+
+    // Print message for invalid date
+    if (!validDate) {
+        std::cout << "Date invalid, setting to " << dMonth << "/" << dDay << "/" << dYear << std::endl;
     }
 }
 

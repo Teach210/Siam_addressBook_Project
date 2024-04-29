@@ -8,6 +8,9 @@ void addressType::print()
 	cout << address << endl;
 	cout << city << ", " << state << " " << zipcode << endl;
 }
+
+//addressType::addressType() : address(""), city(""), state("XX"), zipcode(10000) {}
+
 //         !!CONSTRUCTOR!!         //
 addressType::addressType(string add, string cit, string st, int zip)
 {
