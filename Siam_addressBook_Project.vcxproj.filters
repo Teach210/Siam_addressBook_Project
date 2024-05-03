@@ -30,6 +30,9 @@
     <ClCompile Include="extPersonType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="addressBookType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="addressType.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="extPersonType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="addressBookType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
