@@ -3,7 +3,7 @@
 
 // Constructor
 extPersonType::extPersonType(std::string first, std::string last, int birthMonth, int birthDay, int birthYear,
-    std::string addr, std::string city, std::string state, int zipcode,
+    std::string addr, std::string city, std::string state, std::string zipcode,
     std::string phone, std::string relation)
     : personType(first, last), address(addr, city, state, zipcode),
     birthDate(birthMonth, birthDay, birthYear), phoneNumber(phone) {
@@ -35,10 +35,57 @@ std::string extPersonType::getRelationship() const {
     return relationship;
 }
 
+void extPersonType::setBirthDate(int m, int d, int y) {
+    birthDate.setDate(m, d, y);
+}
+
 // Getter for birth month
 int extPersonType::getBirthMonth() const {
     return birthDate.getMonth();
 }
+
+// Getter for birth day
+int extPersonType::getBirthDay() const {
+    return birthDate.getDay();
+}
+
+// Getter for birth year
+int extPersonType::getBirthYear() const {
+    return birthDate.getYear();
+}
+
+void extPersonType::setAddy(std::string addy) {
+    address.setAddress(addy);
+}
+
+std::string extPersonType::getAddy() const {
+    return address.getAddress();
+}
+
+void extPersonType::setCity(std::string city) {
+    address.setCity(city);
+}
+
+std::string extPersonType::getCity() const {
+    return address.getCity();
+}
+
+void extPersonType::setState(std::string state) {
+    address.setState(state);
+}
+
+std::string extPersonType::getState() const {
+    return address.getState();
+}
+
+void extPersonType::setZipCode(std::string zip) {
+    address.setZipcode(zip);
+}
+
+std::string extPersonType::getZipCode() const {
+    return address.getZipcode();
+}
+
 
 // Method to print person information
 void extPersonType::print() const {

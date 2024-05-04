@@ -13,11 +13,11 @@ private:
 public:
 
     // Default constructor
-    extPersonType() : personType("", ""), address(" ", " ", "XX", 10000), birthDate(), phoneNumber(""), relationship("") {}
+    extPersonType() : personType("", ""), address(" ", " ", "XX", "10000"), birthDate(), phoneNumber(""), relationship("") {}
 
     // Constructor
     extPersonType(std::string first, std::string last, int birthMonth, int birthDay, int birthYear,
-        std::string addr, std::string city, std::string state, int zipcode,
+        std::string addr, std::string city, std::string state, std::string zipcode,
         std::string phone, std::string relationship);
 
     // Setter and getter for phone number
@@ -30,6 +30,31 @@ public:
 
     // Getter for birth month
     int getBirthMonth() const;
+
+    int getBirthDay() const;
+
+    int getBirthYear() const;
+
+    std::string getAddy() const;
+
+    std::string getCity() const;
+
+    std::string getState() const;
+
+    std::string getZipCode() const;
+
+    // Setters
+
+    void setBirthDate(int m, int d, int y);
+
+    void setAddy(std::string add);
+
+    void setCity(std::string city);
+
+    void setState(std::string state);
+
+    void setZipCode(std::string zip);
+
 
     // Method to print person information
     void print() const;

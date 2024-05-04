@@ -8,12 +8,12 @@ private:
 	string address = "";
 	string city = "";
 	string state = "XX";
-	int zipcode = 10000;
+	string zipcode = "10000";
 public: 
 	void print();
 	//preconditions: address, city, state and zipcode must be supplied.
 	// postconditions: uses supplied values.
-	addressType(string = ("(Your address)"), string = ("(Your city)"), string = ("(XX)"), int = 10000);
+	addressType(string = ("(Your address)"), string = ("(Your city)"), string = ("(XX)"), string = ("10000"));
 	//preconditions: an address vlue is needed.
 	//Postconditions: Uses given value for address else remains blank.
 	void setAddress(string add) { address = add; }
@@ -26,12 +26,12 @@ public:
 	void setState(string st);
 	//preconditions: Needs 5 digit zipcode to work
 	//postxconditions: uses given zipcode else it uses default value (10000)
-	void setZipcode(int zip);
+	void setZipcode(string zip);
 
 	std::string getAddress() const { return address; }
 	std::string getCity() const { return city; }
 	std::string getState() const { return state; }
-	int getZipcode() const { return zipcode; }
+	std::string getZipcode() const { return zipcode; }
 	
 
 	

@@ -13,7 +13,6 @@ void dateType::setDate(int m, int d, int y) {
     bool validDate = true;
 
     // Print input values for debugging
-    std::cout << "Input Date: " << m << "-" << d << "-" << y << std::endl;
 
     // Check Year
     if (y < 1900) {

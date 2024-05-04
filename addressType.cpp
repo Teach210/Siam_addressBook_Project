@@ -12,7 +12,7 @@ void addressType::print()
 //addressType::addressType() : address(""), city(""), state("XX"), zipcode(10000) {}
 
 //         !!CONSTRUCTOR!!         //
-addressType::addressType(string add, string cit, string st, int zip)
+addressType::addressType(string add, string cit, string st, string zip)
 {
 	address = add;
 	city = cit;
@@ -31,11 +31,11 @@ void addressType::setState(string st)
 		state = st;
 }
 
-void addressType::setZipcode(int zip)
+void addressType::setZipcode(std::string zip)
 {
-	if (zip < 10000 || zip > 99999  )
+	if (zip.length() != 5 )
 	{
-		zipcode = 10000;
+		zipcode = "10000";
 		cout << "Zipcode is invalid" << endl;
 	}
 	else
