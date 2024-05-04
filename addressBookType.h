@@ -5,7 +5,7 @@
 
 class addressBookType {
 private:
-    extPersonType address[500];
+    extPersonType addressList[500];
     int length;
     const int MAX_LENGTH = 500;
 

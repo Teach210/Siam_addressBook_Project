@@ -38,7 +38,7 @@ void addressBookType::initEntry(std::string filename) {
 
 
 
-        address[length] = person;
+        addressList[length] = person;
 
         recordCount++; 
         length++;
@@ -50,7 +50,7 @@ void addressBookType::initEntry(std::string filename) {
 void addressBookType::addEntry(extPersonType person) {
     // Implement addEntry
     if (length < MAX_LENGTH) {
-        address[length] = person;
+        addressList[length] = person;
         length++;
     }
     else {
@@ -61,28 +61,37 @@ void addressBookType::addEntry(extPersonType person) {
 void addressBookType::findPerson(std::string lastName) {
     // Implement findPerson
     for (int i = 0; i < MAX_LENGTH; i++) {
-        if (address[i].getLastName() == lastName) {
-            return address[i].print();
+        if (addressList[i].getLastName() == lastName) {
+            return addressList[i].print();
         }
     }
 }
 
 void addressBookType::findBirthdays(int month) {
-
+    for (int i = 0; i < length; i++) {
+        if (addressList[i].getBirthMonth() == month) {
+            std::cout << addressList[i].getFirstName() << " " << addressList[i].getLastName() << std::endl;
+        }
+    }
 }
 
 void addressBookType::findRelations(std::string relationship) {
     // Implement findRelations
+    for (int i = 0; i < length; i++) {
+        if (addressList[i].getRelationship() == relationship) {
+            std::cout << addressList[i].getFirstName() << " " << addressList[i].getLastName() << std::endl;
+        }
+    }
 }
 
 void addressBookType::print() {
     // Implement print
     for (int i = 0; i < length; i++) {
-        std::cout << address[i].getFirstName() << " " << address[i].getLastName() << std::endl;
-        std::cout << address[i].getBirthMonth() << "/" << address[i].getBirthDay() << "/" << address[i].getBirthYear() << std::endl;
-        std::cout << address[i].getAddy() << std::endl;
-        std::cout << address[i].getCity() << ", " << address[i].getState() << " " << address[i].getZipCode() << std::endl;
-        std::cout << address[i].getPhoneNumber() << " " << address[i].getRelationship() << std::endl << std::endl;
+        std::cout << addressList[i].getFirstName() << " " << addressList[i].getLastName() << std::endl;
+        std::cout << addressList[i].getBirthMonth() << "/" << addressList[i].getBirthDay() << "/" << addressList[i].getBirthYear() << std::endl;
+        std::cout << addressList[i].getAddy() << std::endl;
+        std::cout << addressList[i].getCity() << ", " << addressList[i].getState() << " " << addressList[i].getZipCode() << std::endl;
+        std::cout << addressList[i].getPhoneNumber() << " " << addressList[i].getRelationship() << std::endl << std::endl;
     }
 }
 
