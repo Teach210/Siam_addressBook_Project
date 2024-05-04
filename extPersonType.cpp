@@ -96,5 +96,5 @@ void extPersonType::print() const {
     std::cout << "State: " << address.getState() << std::endl;
     std::cout << "Zipcode: " << address.getZipcode() << std::endl;
     std::cout << "Phone Number: " << phoneNumber << std::endl;
-    std::cout << "Relationship: " << getRelationship() << std::endl;
+    std::cout << "Relationship: " << getRelationship() << std::endl << std::endl;
 }

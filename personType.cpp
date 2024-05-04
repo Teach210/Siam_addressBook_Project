@@ -1,18 +1,23 @@
 #include "personType.h"
 #include <iostream>
+#include <cctype>
 
 // Constructor
 personType::personType(std::string a_firstName, std::string a_lastName) {
+    a_firstName[0] = std::toupper(a_firstName[0]);
+    a_lastName[0] = std::toupper(a_lastName[0]);
     firstName = a_firstName;
     lastName = a_lastName;
 }
 
 // Setters
 void personType::setFirstName(std::string a_firstName) {
+    a_firstName[0] = std::toupper(a_firstName[0]);
     firstName = a_firstName;
 }
 
 void personType::setLastName(std::string a_lastName) {
+    a_lastName[0] = std::toupper(a_lastName[0]);
     lastName = a_lastName;
 }
 

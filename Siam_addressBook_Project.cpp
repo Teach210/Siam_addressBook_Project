@@ -9,6 +9,8 @@ int main() {
     addressBook.print();
     //addressBook.findBirthdays(12);
     addressBook.findRelations("Business");
+    addressBook.sortEntries();
+    addressBook.print();
 
     return 0;
 }

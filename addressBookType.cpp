@@ -87,14 +87,27 @@ void addressBookType::findRelations(std::string relationship) {
 void addressBookType::print() {
     // Implement print
     for (int i = 0; i < length; i++) {
-        std::cout << addressList[i].getFirstName() << " " << addressList[i].getLastName() << std::endl;
-        std::cout << addressList[i].getBirthMonth() << "/" << addressList[i].getBirthDay() << "/" << addressList[i].getBirthYear() << std::endl;
-        std::cout << addressList[i].getAddy() << std::endl;
-        std::cout << addressList[i].getCity() << ", " << addressList[i].getState() << " " << addressList[i].getZipCode() << std::endl;
-        std::cout << addressList[i].getPhoneNumber() << " " << addressList[i].getRelationship() << std::endl << std::endl;
+        addressList[i].print();
     }
 }
 
 void addressBookType::sortEntries() {
     // Implement sortEntries
+    int current = 1;
+    while (current < length) {
+        int index = current;
+        bool placeFound = false;
+        while (index > 0 && !placeFound) {
+            if (addressList[index].getLastName() < addressList[index - 1].getLastName()) {
+                extPersonType temp = addressList[index];
+                addressList[index] = addressList[index - 1];
+                addressList[index - 1] = temp;
+                index--;
+            }
+            else {
+                placeFound = true;
+            }
+        }
+        current++;
+    }
 }
