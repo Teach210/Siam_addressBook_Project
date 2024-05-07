@@ -98,3 +98,33 @@ void extPersonType::print() const {
     std::cout << "Phone Number: " << phoneNumber << std::endl;
     std::cout << "Relationship: " << getRelationship() << std::endl << std::endl;
 }
+
+// Overload the >= operator
+bool extPersonType::operator>=(const extPersonType& other) const {
+    // Implement the comparison logic based on your requirements
+    // For example, compare based on last name and then first name
+    if (this->getLastName() == other.getLastName()) {
+        return this->getFirstName() >= other.getFirstName();
+    }
+    return this->getFirstName() >= other.getLastName();
+}
+
+// Overload the == operator
+bool extPersonType::operator==(const extPersonType& other) const {
+    // Implement the comparison logic based on your requirements
+    return (this->getFirstName() == other.getFirstName() && this->getLastName() == other.getLastName());
+}
+
+// Overload the <= operator
+bool extPersonType::operator<=(const extPersonType& other) const {
+    // Implement the comparison logic based on your requirements
+    if (this->getLastName() == other.getLastName()) {
+        return this->getFirstName() <= other.getFirstName();
+    }
+    return this->getFirstName() <= other.getLastName();
+}
+
+bool extPersonType::operator!=(const extPersonType& other) const {
+    // Implement the comparison logic based on your requirements
+    return (this->getFirstName() != other.getFirstName() && this->getLastName() != other.getLastName());
+}

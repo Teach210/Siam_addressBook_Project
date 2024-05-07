@@ -1,6 +1,6 @@
 #include <iostream>
 #include "addressBookType.h" // Include the header for addressBookType
-using namespace ;
+using namespace std;
 
 int showMenu() {
     int choice;
@@ -12,8 +12,7 @@ int showMenu() {
     cout << "3 - Find Birthdays" << endl;
     cout << "4 - Find Relations" << endl;
     cout << "5 - Print Address Book" << endl;
-    cout << "6 - Sort Entries" << endl;
-    cout << "7 - Quit" << endl;
+    cout << "6 - Quit" << endl;
 
     cout << "Enter your choice: ";
     cin >> choice;
@@ -104,17 +103,12 @@ int main() {
             addressBook.print();
             break;
         case 6:
-            // Sort Entries
-            addressBook.sortEntries();
-            cout << "Entries sorted." << endl;
-            break;
-        case 7:
             cout << "Exiting program." << endl;
             break;
         default:
             cout << "Invalid choice. Please try again." << endl;
         }
-    } while (choice != 7);
+    } while (choice != 6);
 
     return 0;
 }

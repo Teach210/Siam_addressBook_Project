@@ -58,5 +58,13 @@ public:
 
     // Method to print person information
     void print() const;
+
+    bool operator>=(const extPersonType& other) const;
+
+    bool operator==(const extPersonType& other) const;
+
+    bool operator<=(const extPersonType& other) const;
+
+    bool operator!=(const extPersonType& other) const;
 };
 

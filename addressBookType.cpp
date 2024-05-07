@@ -2,9 +2,10 @@
 #include <iostream>
 #include "extPersonType.h" // Include the header for extPersonType
 #include <fstream>
+
 // Constructor
 addressBookType::addressBookType() {
-    length = 0;
+    // No need to initialize length, as it's no longer used
 }
 
 // Member function implementations
@@ -13,8 +14,7 @@ void addressBookType::initEntry(std::string filename) {
     std::string firstName, lastName, addy, city, state, zip, phone, relation;
     int month, day, year;
     extPersonType person;
-    int recordCount = 0;
-    
+
     if (!inFile.is_open()) {
         std::cerr << "Error: Failed to open file." << std::endl;
         return;
@@ -36,78 +36,56 @@ void addressBookType::initEntry(std::string filename) {
         person.setPhoneNumber(phone);
         person.setRelationship(relation);
 
-
-
-        addressList[length] = person;
-
-        recordCount++; 
-        length++;
+        // Use addEntry instead of direct assignment
+        addEntry(person);
     }
-    std::cout << recordCount << " records added from file" << std::endl;
     inFile.close(); // Close the file after reading
 }
 
 void addressBookType::addEntry(extPersonType person) {
-    // Implement addEntry
-    if (length < MAX_LENGTH) {
-        addressList[length] = person;
-        length++;
-    }
-    else {
-        std::cerr << "Address list full! Can't add anymore entries." << std::endl;
-    }
+    insert(person); // Use insert function of orderedLinkedList
 }
 
 void addressBookType::findPerson(std::string lastName) {
-    // Implement findPerson
-    for (int i = 0; i < MAX_LENGTH; i++) {
-        if (addressList[i].getLastName() == lastName) {
-            return addressList[i].print();
+    // Use a traversal of nodes instead of array iteration
+    nodeType<extPersonType>* current = first;
+    while (current != nullptr) {
+        if (current->info.getLastName() == lastName) {
+            current->info.print();
+            return;
         }
+        current = current->link;
     }
+    std::cout << "Person with last name " << lastName << " not found." << std::endl;
 }
 
 void addressBookType::findBirthdays(int month) {
-    for (int i = 0; i < length; i++) {
-        if (addressList[i].getBirthMonth() == month) {
-            std::cout << addressList[i].getFirstName() << " " << addressList[i].getLastName() << std::endl;
+    // Use a traversal of nodes instead of array iteration
+    nodeType<extPersonType>* current = first;
+    while (current != nullptr) {
+        if (current->info.getBirthMonth() == month) {
+            std::cout << current->info.getFirstName() << " " << current->info.getLastName() << std::endl;
         }
+        current = current->link;
     }
 }
 
 void addressBookType::findRelations(std::string relationship) {
-    // Implement findRelations
-    for (int i = 0; i < length; i++) {
-        if (addressList[i].getRelationship() == relationship) {
-            std::cout << addressList[i].getFirstName() << " " << addressList[i].getLastName() << std::endl;
+    // Use a traversal of nodes instead of array iteration
+    nodeType<extPersonType>* current = first;
+    while (current != nullptr) {
+        if (current->info.getRelationship() == relationship) {
+            std::cout << current->info.getFirstName() << " " << current->info.getLastName() << std::endl;
         }
+        current = current->link;
     }
 }
 
 void addressBookType::print() {
-    // Implement print
-    for (int i = 0; i < length; i++) {
-        addressList[i].print();
-    }
-}
-
-void addressBookType::sortEntries() {
-    // Implement sortEntries
-    int current = 1;
-    while (current < length) {
-        int index = current;
-        bool placeFound = false;
-        while (index > 0 && !placeFound) {
-            if (addressList[index].getLastName() < addressList[index - 1].getLastName()) {
-                extPersonType temp = addressList[index];
-                addressList[index] = addressList[index - 1];
-                addressList[index - 1] = temp;
-                index--;
-            }
-            else {
-                placeFound = true;
-            }
-        }
-        current++;
+    // Use a traversal of nodes instead of array iteration
+    nodeType<extPersonType>* current = first;
+    while (current != nullptr) {
+        current->info.print();
+        current = current->link;
     }
 }

@@ -1,13 +1,10 @@
 #pragma once
 #include <string>
 #include "extPersonType.h"
+#include "orderedLinkedList.h"
 
 
-class addressBookType {
-private:
-    extPersonType addressList[500];
-    int length;
-    const int MAX_LENGTH = 500;
+class addressBookType : public orderedLinkedList<extPersonType>{
 
 public:
     addressBookType();
@@ -24,6 +21,5 @@ public:
 
     void print();
 
-    void sortEntries();
 };
 
