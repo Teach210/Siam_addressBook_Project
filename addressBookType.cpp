@@ -46,17 +46,18 @@ void addressBookType::addEntry(extPersonType person) {
     insert(person); // Use insert function of orderedLinkedList
 }
 
-void addressBookType::findPerson(std::string lastName) {
+nodeType<extPersonType>* addressBookType::findPerson(std::string firstName, std::string lastName) {
     // Use a traversal of nodes instead of array iteration
     nodeType<extPersonType>* current = first;
     while (current != nullptr) {
-        if (current->info.getLastName() == lastName) {
+        if (current->info.getFirstName() == firstName && current->info.getLastName() == lastName) {
             current->info.print();
-            return;
+            return current;
         }
         current = current->link;
     }
-    std::cout << "Person with last name " << lastName << " not found." << std::endl;
+    std::cout << "Person with name " << firstName << " " << lastName << " not found." << std::endl;
+    return nullptr;
 }
 
 void addressBookType::findBirthdays(int month) {
@@ -87,5 +88,42 @@ void addressBookType::print() {
     while (current != nullptr) {
         current->info.print();
         current = current->link;
+    }
+}
+
+void addressBookType::addEntryInteractive() {
+    std::string firstName, lastName, addy, city, state, zip, phone, relation;
+    int month, day, year;
+
+    std::cout << "Enter first name: ";
+    std::cin >> firstName;
+    std::cout << "Enter last name: ";
+    std::cin >> lastName;
+    std::cout << "Enter birthdate (month day year): ";
+    std::cin >> month >> day >> year;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer
+    std::cout << "Enter address: ";
+    std::getline(std::cin, addy);
+    std::cout << "Enter city: ";
+    std::getline(std::cin, city);
+    std::cout << "Enter state: ";
+    std::cin >> state;
+    std::cout << "Enter zip code: ";
+    std::cin >> zip;
+    std::cout << "Enter phone number: ";
+    std::cin >> phone;
+    std::cout << "Enter relationship: ";
+    std::cin >> relation;
+
+    extPersonType newPerson(firstName, lastName, month, day, year, addy, city, state, zip, phone, relation);
+    addEntry(newPerson);
+}
+
+void addressBookType::removeEntry(std::string firstName, std::string lastName) {
+    // Use a traversal of nodes instead of array iteration
+    nodeType<extPersonType>* nodeToDelete = findPerson(firstName, lastName);
+    if (nodeToDelete != nullptr) {
+        deleteNode(nodeToDelete->info);
+        std::cout << firstName << " " << lastName << " successfully removed!" << std::endl;
     }
 }

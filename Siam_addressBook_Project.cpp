@@ -8,14 +8,17 @@ int showMenu() {
     cout << "Main Menu" << endl; // Replace with an appropriate heading
     cout << "Select an option:" << endl;
     cout << "1 - Add Entry" << endl;
-    cout << "2 - Find Person" << endl;
-    cout << "3 - Find Birthdays" << endl;
-    cout << "4 - Find Relations" << endl;
-    cout << "5 - Print Address Book" << endl;
-    cout << "6 - Quit" << endl;
+    cout << "2 - Add Entry Interactive" << endl;
+    cout << "3 - Remove Entry" << endl;
+    cout << "4 - Find Person" << endl;
+    cout << "5 - Find Birthdays" << endl;
+    cout << "6 - Find Relations" << endl;
+    cout << "7 - Print Address Book" << endl;
+    cout << "8 - Quit" << endl;
 
     cout << "Enter your choice: ";
     cin >> choice;
+    cout << endl;
 
     return choice;
 }
@@ -72,15 +75,36 @@ int main() {
         }
         break;
         case 2:
-            // Find Person
         {
-            string lastName;
-            cout << "Enter last name to find: ";
-            cin >> lastName;
-            addressBook.findPerson(lastName);
+            // Add new entry interactively
+            addressBook.addEntryInteractive();
         }
         break;
         case 3:
+        {
+            // Remove entry
+            string firstName, lastName;
+            cout << "Enter first name: ";
+            cin >> firstName;
+            cout << "Enter last name: ";
+            cin >> lastName;
+            cout << endl;
+            addressBook.removeEntry(firstName, lastName);
+        }
+        break;
+        case 4:
+            // Find Person
+        {
+            string firstName, lastName;
+            cout << "Enter first name: ";
+            cin >> firstName;
+            cout << "Enter last name: ";
+            cin >> lastName;
+            cout << endl;
+            addressBook.findPerson(firstName, lastName);
+        }
+        break;
+        case 5:
             // Find Birthdays
         {
             int month;
@@ -89,7 +113,7 @@ int main() {
             addressBook.findBirthdays(month);
         }
         break;
-        case 4:
+        case 6:
             // Find Relations
         {
             string relationship;
@@ -98,17 +122,17 @@ int main() {
             addressBook.findRelations(relationship);
         }
         break;
-        case 5:
+        case 7:
             // Print Address Book
             addressBook.print();
             break;
-        case 6:
+        case 8:
             cout << "Exiting program." << endl;
             break;
         default:
             cout << "Invalid choice. Please try again." << endl;
         }
-    } while (choice != 6);
+    } while (choice != 8);
 
     return 0;
 }

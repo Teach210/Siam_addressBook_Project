@@ -13,13 +13,19 @@ public:
 
     void addEntry(extPersonType person);
 
-    void findPerson(std::string lastName);
+    nodeType<extPersonType>* findPerson(std::string firstName, std::string lastName);
 
     void findBirthdays(int month);
 
     void findRelations(std::string relationship);
 
     void print();
+
+    // Function to add a new entry interactively
+    void addEntryInteractive();
+
+    // Function to remove an entry
+    void removeEntry(std::string firstName, std::string lastName);
 
 };
 
