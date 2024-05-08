@@ -151,7 +151,7 @@ void orderedLinkedList<Type>::deleteNode(const Type& deleteItem)
         found = false;
 
         while (current != nullptr && !found)  //search the list
-            if (current->info >= deleteItem)
+            if (current->info == deleteItem)
                 found = true;
             else
             {

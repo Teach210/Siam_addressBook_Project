@@ -99,7 +99,7 @@ void addressBookType::addEntryInteractive() {
     std::cin >> firstName;
     std::cout << "Enter last name: ";
     std::cin >> lastName;
-    std::cout << "Enter birthdate (month day year): ";
+    std::cout << "Enter birthdate (MM DD YYYY): ";
     std::cin >> month >> day >> year;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer
     std::cout << "Enter address: ";

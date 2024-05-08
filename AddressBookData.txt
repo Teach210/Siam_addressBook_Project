@@ -14,11 +14,19 @@ CA
 91340
 215-782-9000
 Family
-Chelsea Tomak
-12 8 1999
-Kennedy Blvd
+Siam Sadid
+8 21 1998
+Addy
+city
+XX
+12345
+111-333-4444
+Friend
+Shelly Malik
+12 8 2000
+Lincoln Drive
 Omaha
 NE
-68172
-402-777-8888
-Friend
+68131
+402-555-1212
+Family
