@@ -127,6 +127,8 @@ int main() {
             addressBook.print();
             break;
         case 8:
+            cout << "Saving Data..." << endl;
+            addressBook.saveToFile("AddressBookData.txt");
             cout << "Exiting program." << endl;
             break;
         default:

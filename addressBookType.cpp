@@ -127,3 +127,32 @@ void addressBookType::removeEntry(std::string firstName, std::string lastName) {
         std::cout << firstName << " " << lastName << " successfully removed!" << std::endl;
     }
 }
+
+void addressBookType::saveToFile(const std::string& filename) const {
+    std::ofstream outFile(filename);
+
+    if (!outFile) {
+        std::cerr << "Error: Unable to open file " << filename << " for writing." << std::endl;
+        return;
+    }
+
+    
+    nodeType<extPersonType>* current = first;
+    while (current != nullptr) {
+        outFile << current->info.getFirstName() << " "
+            << current->info.getLastName() << "\n"
+            << current->info.getBirthMonth() << " "
+            << current->info.getBirthDay() << " "
+            << current->info.getBirthYear() << "\n"
+            << current->info.getAddy() << "\n"
+            << current->info.getCity() << "\n"
+            << current->info.getState() << "\n"
+            << current->info.getZipCode() << "\n"
+            << current->info.getPhoneNumber() << "\n"
+            << current->info.getRelationship() << std::endl;
+        current = current->link;
+    }
+   
+
+    outFile.close();
+}

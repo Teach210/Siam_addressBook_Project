@@ -27,5 +27,7 @@ public:
     // Function to remove an entry
     void removeEntry(std::string firstName, std::string lastName);
 
+    void saveToFile(const std::string& filename) const;
+
 };
 
